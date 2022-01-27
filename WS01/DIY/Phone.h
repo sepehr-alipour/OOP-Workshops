@@ -1,7 +1,7 @@
 /* ------------------------------------------------------
 Workshop 1 part 2
 Module: N/A
-Filename: directory.cpp
+Filename: Phone.h
 Version 1
 Author	Sepehr Alipour
 Email   salipour2@myseneca.ca
@@ -10,9 +10,10 @@ Revision History
 -----------------------------------------------------------
 Date       01/23/2022
 -----------------------------------------------------------*/
-#include "Phone.h"
-using namespace sdds;
-int main() {
-	phoneDir("Star Wars", "phone.txt");
-	return 0;
+#ifndef _PHONE_H
+#define _PHONE_H
+namespace sdds {
+	
+	void phoneDir(const char* programTitle, const char* fileName);	
 }
+#endif

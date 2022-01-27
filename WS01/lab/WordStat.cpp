@@ -1,18 +1,26 @@
 /* ------------------------------------------------------
-Workshop 1 part 2
+Workshop 1 part 1
 Module: N/A
-Filename: directory.cpp
+Filename: WordStat.cpp
 Version 1
 Author	Sepehr Alipour
 Email   salipour2@myseneca.ca
 StudentID 107296212
 Revision History
 -----------------------------------------------------------
-Date       01/23/2022
+Date       01/18/2022
 -----------------------------------------------------------*/
-#include "Phone.h"
+#include <iostream>
+#include "Word.h"
 using namespace sdds;
+using namespace std;
+
+
 int main() {
-	phoneDir("Star Wars", "phone.txt");
+	char filename[256];
+	programTitle();
+	cout << "Enter filename: ";
+	cin >> filename;
+	wordStats(filename);
 	return 0;
 }

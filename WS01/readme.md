@@ -1,6 +1,5 @@
 # Workshop #1: Modules   
-- Version 1.1 (Fixed description: Renamed incorrect data file name and app name from Shopping list to Word Stat) 
-
+ 
 In process of doing your first workshop, in part 1 you are to sub-divide a program into modules, compile each module separately and construct an executable from the results of each compilation. In Part 2 (**DIY**) you are to write a modular program based on your knowledge of ipc144 subject. 
 
 ## Learning Outcomes
@@ -80,7 +79,7 @@ Here is a sample execution of the program
 - Now you can run the program by selecting **“Debug/Start Without Debugging”** or pressing the **“Ctr-F5”** button. 
 ### On Linux, in your Matrix account
 - Connect to Seneca with [Global Protect VPN](https://inside.senecacollege.ca/its/services/vpn/studentvpn.html)
-- Upload **w1p1.cpp** and ~~shoppinglist.csv~~ **FoxInSocks.txt** to your matrix account (Ideally to a designated directory for your workshop solutions). Then, enter the following command to compile the source file and create an executable called ws:
+- Upload **w1p1.cpp** and **shoppinglist.csv** to your matrix account (Ideally to a designated directory for your workshop solutions). Then, enter the following command to compile the source file and create an executable called ws:
 ```bash
 g++ w1p1.cpp -Wall -std=c++11 -o ws<ENTER>
 
@@ -135,7 +134,7 @@ Add **cStrTools.cpp**, **Word.cpp** and **WordStat.cpp** to the “Source Files�
 (The module holding the **main** function)
 
 **WordStat.cpp** file should contain the following code:
-
+```C++
 ```C++
 #include <iostream>
 #include "Word.h"
@@ -235,7 +234,7 @@ SORT_ALPHABETICALLY  // ...
 -------------------------------
 
 ## Step 5: Testing
-### Testing the ~~Shopping List~~ **Word Stat** Application
+### Testing the Shopping List Application
 #### Windows
 To test that you have done this correctly, you can compile each module separately, by right-clicking on ***cStrTools.cpp**, **Word.cpp** and  **WordStat.cpp**separately and select compile from the menu. If the compilation is successful, most likely you have done it correctly.
 
