@@ -13,6 +13,6 @@ Date       01/23/2022
 #include "Phone.h"
 using namespace sdds;
 int main() {
-	phoneDir("Star Wars", "phone.txt");
+	phoneDir("Star Wars", "phones.txt");
 	return 0;
 }
