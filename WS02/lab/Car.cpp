@@ -92,7 +92,7 @@ namespace sdds {
 	}
 
 	void endOfDay() {
-		for (int i = 0; i < numberOfCars; i++)
+		for (int i = 0; i < carArraySize; i++)
 		{
 			print(ptrStrCars[i]);
 			deallocate(ptrStrCars[i]);
