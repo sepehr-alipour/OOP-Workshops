@@ -1,0 +1,21 @@
+/* ------------------------------------------------------
+Workshop 2 part 2
+Module: N/A
+Filename: reflect.txt
+Version 1
+Author	Sepehr Alipour
+Email   salipour2@myseneca.ca
+StudentID 107296212
+Revision History
+-----------------------------------------------------------
+Date       01/30/2022
+-----------------------------------------------------------*/
+
+
+In this workshop I learned to allocate dynamic memory to array of structs, it means that we can define a struct array with initial
+allocation size and then increase the size of array by creating temp structure and allocate new size to the temp struct and then
+replace the old struct array with the new one that is allocated a larger size of array.
+
+Also, I figured out how I can sort the struct by one of the members of the struct.
+
+And Finally, this workshop taught me how I can release the allocated (deallocate) memory from the variables.
