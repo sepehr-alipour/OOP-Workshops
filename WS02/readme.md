@@ -25,15 +25,29 @@ This workshop is divided into two coding parts and one non-coding part:
 
 If at the deadline the workshop is not complete, there is an extension of **one day** when you can submit the missing parts.  **The code parts that are submitted late receive 0%.**  After this extra day, the submission closes; if the workshop is incomplete when the submission closes (missing at least one of the coding or non-coding parts), **the mark for the entire workshop is 0%**.
 
+## Citation
+
 Every file that you submit must contain (as a comment) at the top:<br />
 **your name**, **your Seneca email**, **Seneca Student ID** and the **date** when you completed the work.
 
-If the file contains only your work or work provided to you by your professor, add the following message as a comment at the top of the file:
+### For work that is done entirely by you (ONLY YOU)
+
+If the file contains only your work or the work provided to you by your professor, add the following message as a comment at the top of the file:
 
 > I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
 
+### For work that is done partially by you.
 
 If the file contains work that is not yours (you found it online or somebody provided it to you), **write exactly which part of the assignment is given to you as help, who gave it to you, or which source you received it from.**  By doing this you will only lose the mark for the parts you got help for, and the person helping you will be clear of any wrongdoing.
+
+> - Add the citation to the file in which you have the borrowed code
+> - In the 'reflect.txt` submission of part 2 (DIY), add exactly what is added to which file and from where (or whom).
+
+> :warning: This [Submission Policy](#submission-policy) only applies to the workshops. All other assessments in this subject have their own submission policies.
+
+### If you have helped someone with your code
+
+If you have helped someone with your code. Let them know of these regulations and in your 'reflect.txt' of part 2 (DIY), write exactly which part of your code was copied and who was the recipient of this code.<br />By doing this you will be clear of any wrongdoing if the recipient of the code does not honour these regulations.
 
 ## Compiling and Testing Your Program
 
@@ -465,7 +479,7 @@ main.cpp
 
 ### Data Entry
 
-To Be Announced Shortly
+Follow the instructions of the submitter program.
 
 ## Submission Process:
 
