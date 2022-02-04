@@ -14,9 +14,8 @@ Date          Reason
 #include <iostream>
 #include <cstring>
 #include <iomanip>
-using namespace std;
 #include "Train.h"
-using namespace sdds;
+using namespace std;
 
 int main() {
 
