@@ -1,0 +1,21 @@
+/* ------------------------------------------------------
+Workshop 3 part 2
+Module: N/A
+Filename: reflect.txt
+Version 1
+Author	Sepehr Alipour
+Email   salipour2@myseneca.ca
+StudentID 107296212
+Revision History
+-----------------------------------------------------------
+Date       02/06/2022
+-----------------------------------------------------------*/
+
+In this workshop, I understood how I can send the class object by reference like pointers in C programming
+and we can access to allocated memory of instance objects by using '&' in an argument of global function.
+
+Also, this workshop helped me to figure out what are the member functions and what is the difference of 
+global function with member functions and how we can access them.
+
+I got that how we can encapsulate the data members and member functions by using access modifiers. Moreover, I
+understood how the queries work by using 'const' key in the declaration of functions.
