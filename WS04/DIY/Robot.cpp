@@ -22,6 +22,14 @@ Date       02/13/2022
 using namespace std;
 namespace sdds {
 
+	void Robot::deallocate()
+	{ 
+		delete[] m_name;
+		delete[] m_location;
+
+		m_name = nullptr;
+		m_location = nullptr;
+	}
 
 	Robot::Robot()
 	{
@@ -31,12 +39,12 @@ namespace sdds {
 
 	void Robot::resetInfo()
 	{
-		name = nullptr;
-		location = nullptr;
-		weight = 0;
-		width = 0;
-		height = 0;
-		speed = 0;
+		m_name = nullptr;
+		m_location = nullptr;
+		m_weight = 0;
+		m_width = 0;
+		m_height = 0;
+		m_speed = 0;
 	}
 
 
@@ -48,7 +56,9 @@ namespace sdds {
 		, const double speed
 		, const bool deployed)
 	{
+
 		set(name, location, weight, width, height, speed, deployed);
+
 	}
 
 
@@ -61,22 +71,29 @@ namespace sdds {
 		, const bool deployed)
 	{
 
-		Robot::name = new char[strlen(name) + 1];
-		Robot::location = new char[strlen(location) + 1];
-		strcpy(Robot::name, name);
-		strcpy(Robot::location, location);
-		Robot::weight = weight;
-		Robot::width = width;
-		Robot::height = height;
-		Robot::speed = speed;
-		Robot::deployed = deployed;
-
-
-		if (!isValid())
+		if (name != nullptr 
+			&& weight > 0 
+			&& width > 0 
+			&& height > 0 
+			&& speed > 0)
 		{
-			resetInfo();
+
+
+			m_name = new char[strlen(name) + 1];
+			m_location= new char[strlen(location) + 1];
+			strcpy(m_name, name);
+			strcpy(m_location, location);
+			m_weight = weight;
+			m_width = width;
+			m_height = height;
+			m_speed = speed;
+			m_deployed = deployed;
 		}
+		else
+			resetInfo();
+
 		return *this;
+		
 	}
 
 
@@ -85,13 +102,13 @@ namespace sdds {
 	{
 
 		cout << left
-			<< "| " << setw(11) << name
-			<< "| " << setw(16) << location
-			<< "| " << fixed << right << setprecision(1) << setw(6) << weight
-			<< " | " << fixed << right << setprecision(1) << setw(6) << width
-			<< " | " << fixed << right << setprecision(1) << setw(6) << height
-			<< " | " << fixed << right << setprecision(1) << setw(6) << speed
-			<< " | " << left << setw(8) << (deployed == 1 ? "YES" : "NO")
+			<< "| " << setw(11) << m_name
+			<< "| " << setw(16) << m_location
+			<< "| " << fixed << right << setprecision(1) << setw(6) << m_weight
+			<< " | " << fixed << right << setprecision(1) << setw(6) << m_width
+			<< " | " << fixed << right << setprecision(1) << setw(6) << m_height
+			<< " | " << fixed << right << setprecision(1) << setw(6) << m_speed
+			<< " | " << left << setw(8) << (m_deployed == 1 ? "YES" : "NO")
 			<< " |" << endl;
 
 	}
@@ -101,8 +118,8 @@ namespace sdds {
 		int deployed = 0;
 		int fastIndex = 0;
 
-		cout << right << setw(50) << "------Robot Control Room-----" << endl
-			<< right << setw(55) << "---------------------------------------" << endl
+		cout << right << setw(55) << "------ Robot Control Room -----" << endl
+			<< right << setw(59) << "---------------------------------------" << endl
 			<< "| Robot ID   | Location        | Weight |  Width | Height |  Speed | Deployed |" << endl
 			<< "|------------+-----------------+--------+--------+--------+--------+----------|" << endl;
 
@@ -136,7 +153,7 @@ namespace sdds {
 
 		cout << setw(78) << "| SUMMARY:" << "|" << endl
 			<< "| " << deployed << setw(75) << "  robots are deployed." << "|" << endl
-			<< setw(78) << "| The fastest robot is : " << "|" << endl
+			<< setw(78) << "| The fastest robot is: " << "|" << endl
 			<< "| Robot ID   | Location        | Weight |  Width | Height |  Speed | Deployed |" << endl
 			<< "|------------+-----------------+--------+--------+--------+--------+----------|" << endl;
 
@@ -149,24 +166,24 @@ namespace sdds {
 	}
 
 	char* Robot::getName() const {
-		return name;
+		return m_name;
 	}
 
 
 	double Robot::getSpeed() const {
-		return speed;
+		return m_speed;
 	}
 
 	char* Robot::getLocation() const {
-		return location;
+		return m_location;
 	}
 
 	Robot& Robot::setLocation(const char* location) {
 
 		if (location != nullptr)
 		{
-			Robot::location = new char[strlen(location) + 1];
-			strcpy(Robot::location, location);
+			m_location = new char[strlen(location) + 1];
+			strcpy(m_location, location);
 		}
 
 		return *this;
@@ -174,12 +191,12 @@ namespace sdds {
 
 
 	bool Robot::isDeployed() const {
-		return deployed;
+		return m_deployed;
 	}
 
 	Robot& Robot::setDeployed(bool deployed) {
 
-		Robot::deployed = deployed;
+		m_deployed = deployed;
 
 		return *this;
 	}
@@ -187,23 +204,19 @@ namespace sdds {
 
 	bool Robot::isValid() const
 	{
-		if (this->name != nullptr
-			&& this->location != nullptr
-			&& this->weight > 0 && this->width > 0
-			&& this->height > 0 && this->speed > 0)
-			return true;
-		return false;
+		if (m_name == nullptr
+			|| m_location == nullptr
+			|| m_weight <= 0 || m_width <= 0
+			|| m_height <= 0 || m_speed <= 0)
+			return false;
+		return true;
 
 	}
 
 
 	Robot::~Robot()
 	{
-		delete[] this->name;
-		delete[] this->location;
-
-		this->name = nullptr;
-		this->location = nullptr;
+		deallocate();
 	}
 
 }

@@ -21,13 +21,13 @@ namespace sdds {
 
 	class Robot
 	{
-		char* name;
-		char* location;
-		double weight;
-		double width;
-		double height;
-		double speed;
-		bool deployed;
+		char* m_name;
+		char* m_location;
+		double m_weight;
+		double m_width;
+		double m_height;
+		double m_speed;
+		bool m_deployed;
 
 	
 
@@ -46,6 +46,7 @@ namespace sdds {
 		double getSpeed() const;
 		void display() const;
 		void resetInfo();
+		void deallocate();
 	};
 
 	int conrtolRooomReport(const Robot robot[], int size);
