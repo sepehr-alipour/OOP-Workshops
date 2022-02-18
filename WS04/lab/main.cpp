@@ -28,14 +28,14 @@ int main()
 		{"Truck", "Tesla", "Cybertruck", 2021, 102, 65000},
 		{"Sedan", "BMW", "M550i"}
 	};
-	
+	//CarInventory car("suv", "volvo", "xc90");
 	if (cars[2].setInfo("SUV", "Volvo", "XC90", 2019, 109, 80000).isValid()) {
 		cout << "Information was set correctly!" << endl;
 	}
 	else {
 		cout << "Information was set incorrectly!" << endl;
 	}
-	if(cars[1].setInfo("SUV", "Volvo", "XC90",1234,1,1).isValid()){ 
+	if (cars[1].setInfo("SUV", "Volvo", "XC90", 1234, 1, 1).isValid()) {
 		cout << "Information was set correctly!" << endl;
 	}
 	else {
@@ -52,7 +52,7 @@ int main()
 		else
 			invalid_data = true;
 	}
-	
+
 	if (invalid_data) {
 		cout << endl;
 		cout << setfill('*') << setw(60) << "*" << endl;

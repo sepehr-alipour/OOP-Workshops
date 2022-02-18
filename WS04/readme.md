@@ -112,7 +112,7 @@ brand, not null
 model, not null
 year >= 1990
 code, three digit integer
-prince > 0
+price > 0
 ```
 ### Constructors
 ```C++
