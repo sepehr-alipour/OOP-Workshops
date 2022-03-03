@@ -50,7 +50,7 @@ namespace sdds {
 		}
 
 	}
-	
+
 
 	void HealthCard::set(const char* name, long long number, const char vCode[], const char sNumber[]) {
 		if (validID(name, number, vCode, sNumber))
@@ -100,8 +100,15 @@ namespace sdds {
 
 	}
 
-	
-	
+	HealthCard::operator bool() const {
+		if (m_name != nullptr)
+			return true;
+		return false;
+	}
+
+
+
+
 
 
 

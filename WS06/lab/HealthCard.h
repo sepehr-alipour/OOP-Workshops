@@ -32,7 +32,8 @@ namespace sdds {
        void extractChar(std::istream& istr, char ch) const;
        void set(const char* name, long long number, const char vCode[], const char sNumber[]);
        
-
+       operator bool() const;
+       HealthCard& operator=(const HealthCard& hc);
 
        HealthCard(const HealthCard& hc);
 
