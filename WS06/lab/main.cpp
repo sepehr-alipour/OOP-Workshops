@@ -10,6 +10,18 @@
 // the problem in reading goodInfo.csv in showfile
 ///////////////////////////////////////////////////
 
+/* ------------------------------------------------------
+Workshop 6 part 1
+Module: N/A
+Filename: main.cpp
+Version 1
+Author	Sepehr Alipour
+Email   salipour2@myseneca.ca
+StudentID 107296212
+Revision History
+-----------------------------------------------------------
+Date       03/03/2022
+-----------------------------------------------------------*/
 #include <iostream>
 #include <fstream>
 #include "HealthCard.h"
