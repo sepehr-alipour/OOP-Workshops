@@ -29,6 +29,7 @@ namespace sdds {
        bool validID(const char* name, long long number, const char vCode[], const char sNumber[]) const;
        void setEmpty();
        void allocateAndCopy(const char* name);
+       void extractChar(std::istream& istr, char ch) const;
        void set(const char* name, long long number, const char vCode[], const char sNumber[]);
        
 

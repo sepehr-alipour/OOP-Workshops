@@ -40,7 +40,16 @@ namespace sdds {
 		strcpy(m_name, name);
 
 	}
-	
+	void HealthCard::extractChar(std::istream& istr, char ch) const {
+
+		if (istr.peek() == ch)
+			istr.ignore();
+		else {
+			istr.ignore(1000, ch);
+			istr.setstate(ios::failbit);
+		}
+
+	}
 	
 
 	void HealthCard::set(const char* name, long long number, const char vCode[], const char sNumber[]) {
@@ -92,7 +101,6 @@ namespace sdds {
 	}
 
 	
-
 	
 
 
