@@ -50,7 +50,11 @@ namespace sdds {
 		}
 
 	}
+	std::ostream& HealthCard::printIDInfo(std::ostream& ostr)const {
 
+		ostr << m_number << '-' << m_vCode << ", " << m_sNumber;;
+		return ostr;
+	}
 
 	void HealthCard::set(const char* name, long long number, const char vCode[], const char sNumber[]) {
 		if (validID(name, number, vCode, sNumber))
@@ -106,11 +110,44 @@ namespace sdds {
 		return false;
 	}
 
+	std::ostream& HealthCard::print(std::ostream& ostr, bool toFile) const {
+		if (validID(m_name, m_number, m_vCode, m_sNumber)) {
+			if (toFile)
+			{
+				ostr << m_name << ","; printIDInfo(ostr) << endl;
+			}
+			else {
+				ostr << m_name;
+				ostr.width(60 - strlen(m_name));
+				ostr.fill('.');
+
+				printIDInfo(ostr);
+			}
+		}
+		return ostr;
+	}
+	std::istream& HealthCard::read(std::istream& istr) {
+		char name[MaxNameLength];
+		//char* m_name{};
+		long long number;
+		char vCode[3];
+		char sNumber[10];
 
 
+		istr.get(name, MaxNameLength, ',');
+		extractChar(istr, ',');
+		istr >> number;
+		extractChar(istr, '-');
+		istr.get(vCode, 3, ',');
+		extractChar(istr, ',');
+		istr.get(sNumber, 10, '\n');
 
-
-
+		if (!istr.fail())
+			set(name, number, vCode, sNumber);
+		istr.clear();
+		istr.ignore(1000, '\n');
+		return istr;
+	}
 
 
 

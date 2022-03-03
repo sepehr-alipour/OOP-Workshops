@@ -37,7 +37,9 @@ namespace sdds {
 
        HealthCard(const HealthCard& hc);
 
-    
+       std::ostream& print(std::ostream& ostr, bool toFile = true) const;
+       std::istream& read(std::istream& istr);
+       std::ostream& printIDInfo(std::ostream& ostr)const;
       
       
 
