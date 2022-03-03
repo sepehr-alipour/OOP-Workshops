@@ -24,6 +24,7 @@ namespace sdds {
       char m_sNumber[10];
    public:
        HealthCard(const char* name, long long number, const char vCode[], const char sNumber[]);
+       ~HealthCard();
        HealthCard();
        bool validID(const char* name, long long number, const char vCode[], const char sNumber[]) const;
        void setEmpty();
