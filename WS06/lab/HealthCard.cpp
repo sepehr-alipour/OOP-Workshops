@@ -149,6 +149,21 @@ namespace sdds {
 		return istr;
 	}
 
+	std::ostream& operator<<(std::ostream& ostr, const HealthCard& hc) {
+		if (hc.operator bool())
+		{
+			hc.print(ostr, false);
+		}
+		else ostr << "Invalid Health Card Record";
+		return ostr;
+	}
+	std::istream& operator>>(std::istream& istr, HealthCard& hc) {
+		hc.read(istr);
+		return istr;
+	}
+
+
+
 
 
 

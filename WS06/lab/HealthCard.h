@@ -47,7 +47,8 @@ namespace sdds {
 
    };
 
-  
+   std::ostream& operator<<(std::ostream& ostr, const HealthCard& hc);
+   std::istream& operator>>(std::istream& istr, HealthCard& hc);
 }
 #endif // !SDDS_HealthCard_H
 
