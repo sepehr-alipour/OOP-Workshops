@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d66e8046-6adb-4744-83e3-1e0167240013}</ProjectGuid>
-    <RootNamespace>DIY</RootNamespace>
+    <ProjectGuid>{db40955a-8e04-40d5-a215-d61bf89fc569}</ProjectGuid>
+    <RootNamespace>lab</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,11 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="HealthCard.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Train.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Train.h" />
+    <ClInclude Include="HealthCard.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HealthCardInfo.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
