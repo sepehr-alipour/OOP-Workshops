@@ -67,7 +67,6 @@ namespace sdds {
 
 		}
 		else {
-			delete[] m_name;
 			setEmpty();
 		}
 	}
