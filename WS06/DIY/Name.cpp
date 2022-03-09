@@ -31,7 +31,7 @@ namespace sdds {
 		set(firstName, nullptr, lastName);
 	}
 	Name::Name(const char* firstName, const char* middleName, const char* lastName) {
-		if (firstName && middleName && lastName)
+		if (validName(firstName, middleName, lastName))
 			set(firstName, middleName, lastName);
 
 		else {
@@ -46,45 +46,46 @@ namespace sdds {
 			*this = name;
 		}
 
+
 	}
 
 	void Name::setEmpty() {
+
 		this->firstName = nullptr;
 		this->middleName = nullptr;
 		this->lastName = nullptr;
 	}
 	void Name::set(const char* firstName, const char* middleName, const char* lastName) {
 		if (firstName) {
-			this->firstName = nullptr;
+			delete[] this->firstName;
 			this->firstName = new char[strlen(firstName) + 1];
 			strcpy(this->firstName, firstName);
 
 		}
 		else {
+			delete[] this->firstName;
 			this->firstName = nullptr;
 
 		}
 		if (middleName) {
-
-			this->middleName = nullptr;
+			delete[] this->middleName;
 			this->middleName = new char[strlen(middleName) + 1];
 			strcpy(this->middleName, middleName);
 
 		}
 		else {
+			delete[] this->middleName;
 			this->middleName = nullptr;
 		}
 		if (lastName) {
-			this->lastName = nullptr;
+			delete[] this->lastName;
 			this->lastName = new char[strlen(lastName) + 1];
 			strcpy(this->lastName, lastName);
 		}
 		else {
+			delete[] this->lastName;
 			this->lastName = nullptr;
 		}
-
-
-
 
 	}
 
@@ -140,8 +141,10 @@ namespace sdds {
 	}
 	std::istream& Name::read(std::istream& istr) {
 		delete[] firstName;
-		delete[]middleName;
+		delete[] middleName;
 		delete[] lastName;
+		setEmpty();
+
 		string firstName;
 		string middleName;
 		string lastName;
@@ -201,29 +204,33 @@ namespace sdds {
 	Name& Name::operator +=(const char* name) {
 
 
-		if (strcmp(name, "") == 0 || name[0] == ' ')
+		if (strcmp(name, "") == 0 || strchr(name, ' ') != NULL)
 			name = "";
 		if (!this->firstName) {
 
-			this->firstName = nullptr;
+			delete[] this->firstName;
 			this->firstName = new char[strlen(name) + 1];
-
 			strcpy(this->firstName, name);
 
 		}
 		else if (!this->middleName || strcmp(middleName, "") == 0) {
-			this->middleName = nullptr;
+
+			delete[] this->middleName;
 			this->middleName = new char[strlen(name) + 1];
 			strcpy(this->middleName, name);
 		}
 		else if (!this->lastName || strcmp(lastName, "") == 0) {
-			this->lastName = nullptr;
-			this->lastName = new char[strlen(name) + 1];
 
+			delete[] this->lastName;
+			this->lastName = new char[strlen(name) + 1];
 			strcpy(this->lastName, name);
 		}
-		else {		
-			setEmpty(); }
+		else {
+			delete[] firstName;
+			delete[] middleName;
+			delete[] lastName;
+			setEmpty();
+		}
 		return *this;
 	}
 	bool Name::validName(const char* fistName, const char* middleName, const char* lastName) const {
