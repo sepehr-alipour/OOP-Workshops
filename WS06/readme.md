@@ -1,5 +1,6 @@
 # Workshop #6: Classes and resources, IO operators
 # version 1.1 (added tester output for part 2 and fixed a bug in main.cpp part 1)
+# version 1.2 (removed irrelevant instruction in data entry)
 
 In this workshop, you will implement a class with overloaded constructors. Then you will overload IO operators that will be used to read and write on the screen and files.
 
@@ -139,7 +140,7 @@ cin.ignore(1000, '\n'); // flush the invalid value or everything after the numbe
 
 ## Part 1 - lab (50%), The HealthCard class
 
-Your task for this part of your workshop is to complete the implementation of a class called HeathCard. This class encapsulates some basic health-card information of a person in Ontario using the following attributes:
+Your task for this part of your workshop is to complete the implementation of a class called HealthCard. This class encapsulates some basic health-card information of a person in Ontario using the following attributes:
 
 ```C++
  class HealthCard {
@@ -165,9 +166,9 @@ These values are validated (considered **valid**) as follows:
    - The version number consists of two characters
    - The Stock control number consists of nine characters
    
-The HeathCard class is to validate and store the above information via initialization and data entry from istream.
+The HealthCard class is to validate and store the above information via initialization and data entry from istream.
 
-Also, the HeathCard class must comply with the rule of three. (i.e. the implementation of copy constructor, copy assignment and destructor)
+Also, the HealthCard class must comply with the rule of three. (i.e. the implementation of copy constructor, copy assignment and destructor)
 
 Although the name of the HealthCard is dynamically held, we can assume that the maximum length for a name is 55 characters. This value should be kept in a constant global variable so it can be changed at compile-time if needed.
 
@@ -175,7 +176,7 @@ Although the name of the HealthCard is dynamically held, we can assume that the 
    const int MaxNameLength = 55;
 ```
 
-Finally, A HeathCard object should reveal its status (of being valid or invalid) via a Boolean type conversion overload (a true outcome means the object is valid and a false outcome means it is invalid).
+Finally, A HealthCard object should reveal its status (of being valid or invalid) via a Boolean type conversion overload (a true outcome means the object is valid and a false outcome means it is invalid).
 
 To accomplish the above and have an organized and modular code, implement these private methods to help you with the implementation of the whole logic: (you can add more if you like to)
 
@@ -185,7 +186,7 @@ To accomplish the above and have an organized and modular code, implement these 
 Returns true is the four parts of the ID card are valid. (see [Validation](#validation))
 
 #### void setEmpty();
-Sets the HeathCard object to a recognizable empty (invalid) state by setting **m_name** to nullptr;
+Sets the HealthCard object to a recognizable empty (invalid) state by setting **m_name** to nullptr;
 
 #### void allocateAndCopy(const char* name);
 - Free the memory pointed by **m_name** 
@@ -197,7 +198,7 @@ Sets the HeathCard object to a recognizable empty (invalid) state by setting **m
   - If it is the same, Remove it from the keyboard and throw it away! (i.e. istr.ignore())
   - If not:
     - Ignore all the remaining characters (up to 1000 characters) or the value of ch (use istr.ignore(int n,char c))
-    - Set the istream into a fail state (use istr.setstate(iso::failbit))
+    - Set the istream into a fail state (use istr.setstate(ios::failbit))
 #### ostream& printIDInfo(ostream& ostr)const;
 Inserts the three parts related to the main card number, version code and stock number of the health card information into the **istr** object in the following format:
 
@@ -209,12 +210,12 @@ and then returns the **istr** object reference
 #### void set(const char* name, long long number, const char vCode[], const char sNumber[]);
 Validates the arguments,  reallocates memory for the name and sets the object attributes to their corresponding values.
 - If the name and the three parts are valid (see [Validation](#validation)) `call the private function to validate`
-    - Calls the **reallocateAndCopy** function to set the name
+    - Calls the **allocateAndCopy** function to set the name
     - Sets the three parts to their values (m_number, m_vCode, m_sNumber)
 - If not, it deletes the memory pointed by **m_name** and sets the object to a safe empty state (**setEmpty()**)
 
 #### Constructors
-The HeathCard can either get created with no values (default constructor) into a safe empty state or use all four values. 
+The HealthCard can either get created with no values (default constructor) into a safe empty state or use all four values. 
 
 > Instead of overloading the constructor you can use one constructor with the default values for the four parameters, (i.e nullptr, 0, {}, {} ) and remember to reuse the **set** function for the latter case. 
 
@@ -222,11 +223,11 @@ The HeathCard can either get created with no values (default constructor) into a
 
 ### Rule of three
 #### Copy Constructor
-`HeathCard(const HeathCard& hc);`
+`HealthCard(const HealthCard& hc);`
 - if the **hc** object is valid it will set the values of the current object to those of the incoming argument (**hc** using assignment to *this).
 
 #### Copy Assignment operator overload
-`HeathCard& operator=(const HeathCard& hc);`
+`HealthCard& operator=(const HealthCard& hc);`
 - First, it will make sure that this is not a "self-copy" by comparing the address of the current object and the address of the incoming argument.
   - If it is not a self copy this function works exactly like the copy constructor
 - If it is a self copy don't perform any action 
@@ -272,21 +273,20 @@ Example: `Luke Skywalker,1231231234-XL,AF1234567`
 - extract the version number code into a vCode local variable using get for 3 char or up to ',' whichever comes first
 - extract a comma **','** using **extractChar** private function
 - extract the stock control number to the local variable (using get to read 10 char or up to '\n' whichever comes first)
-- extract a new line character **'\n'** (using **extractChar** private function)
 - if **istr** is not in a failure state
     - all data were read successfully, use the **set** private function to set values of the object to read value
 - before returning, clear the state using istr.clear() and ignore the remaining of the line until '\n'
 - at the end return the **istr** reference
 
 ### insertion operator overload
-`ostream& operator<<(ostream& ostr, const Contact& hc);`
+`ostream& operator<<(ostream& ostr, const HealthCard& hc);`
 
-if **hc** is valid it will print it using the **print** function on the screen and not on File, (i.e. onFile is false). Otherwise, it will print `"Invalid Card Number"`.
+if **hc** is valid it will print it using the **print** function on the screen and not to File, (i.e. toFile is false). Otherwise, it will print `"Invalid Card Number"`.
 
 In the end, it will return the **ostr** reference.
 
 ### extraction operator overload
-`istream& operator>>(istream& istr, Contact& hc)`
+`istream& operator>>(istream& istr, HealthCard& hc)`
 
 returns the **read** method of the **hc** argument.
 
@@ -519,7 +519,7 @@ If you have any additional custom code, (i.e. functions, classes etc) that you w
 
 ### Data Entry
 
-??? explain what data  will be used for submission and testing
+Follow the instructions in the tester 
 
 ### Submission Process:
 
@@ -870,7 +870,7 @@ If you have any additional custom code, (i.e. functions, classes etc) that you w
 
 ### Data Entry
 
-??? explain what data  will be used for submission and testing
+Follow the instructions in the tester 
 
 ### Submission Process:
 
