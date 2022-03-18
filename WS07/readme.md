@@ -219,7 +219,7 @@ Then validate the Pack only with the value of the unit size argument (since Cont
 #### Operations
 
 ##### operator+=
-Overrides (shadows) the operator+= of the Base class <br />
+Shadows the operator+= of the Base class <br />
 Receives a number to add units to the pack and returns the number of units successfully added. 
 
 ```text
@@ -236,7 +236,7 @@ Now the Pack will have 12 cans and is full. n will hold 5.
 Call the operator+= of the Bass class by passing the product of the argument multiplied to the unit size attribute.<br />Return the outcome of the base's operator+= divided by the unit size attribute.
 
 ##### operator-=
-Overrides (shadows) the operator-= of the Base class <br />
+Shadows the operator-= of the Base class <br />
 Receives a number to remove units from the pack and returns the number of units successfully removed. 
 
 ```text
@@ -271,13 +271,13 @@ Overloads the clear function of the Base class <br />
 Accepts three arguments: **the Pack size**, **the unit size** and **the content description**. If the unit size is greater than zero it will call the clear of the base class passing **the product of pack size and the unit size** and **the content description**. Then it will set the unit size attribute to the unit size argument.
 
 ### print
-Overrides (shadows) the print of the Base class <br />
+Shadows the print of the Base class <br />
 Receiving and returning an ostream reference, the print will display a valid Pack as follows:
 
 It will call the print of the base class, then if the current object is valid it will print: `", XX in a pack of YY"`, where **XX** is the number of units and **YY** is the pack size;
 
 ### read
-Overrides (shadows) the read of the Base class <br />
+Shadows the read of the Base class <br />
 Receiving and returning an istream reference, read will get a number for the count of the units to be added to the pack if the pack is valid and not full as follows:
 
 If the container is invalid it will print the following message and then exits the read function after the Enter key is pressed.<br />
