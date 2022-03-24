@@ -18,10 +18,10 @@
     <ClInclude Include="Shape.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Line.h">
+    <ClInclude Include="LblShape.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LblShape.h">
+    <ClInclude Include="Line.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Rectangle.h">
@@ -29,19 +29,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Shape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Line.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LblShape.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rectangle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
