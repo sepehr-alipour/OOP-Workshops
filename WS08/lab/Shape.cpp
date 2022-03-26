@@ -1,7 +1,7 @@
 /* ------------------------------------------------------
 Workshop 8 part 1
 Module: N/A
-Filename: Shape.h
+Filename: Shape.cpp
 Version 1
 Author	Sepehr Alipour
 Email   salipour2@myseneca.ca
@@ -10,23 +10,20 @@ Revision History
 -----------------------------------------------------------
 Date       03/24/2022
 -----------------------------------------------------------*/
-#ifndef SHAPE_H
-#define SHAPE_H
-#include <iostream>
+#define _CRT_SECURE_NO_WARNINGS
+
+#include "Shape.h"
 
 using namespace std;
 namespace sdds {
-	class Shape {
 
-	public:
-		virtual void getSpecs(std::istream& is) = 0;
-		virtual void draw(std::ostream& os)  const = 0;
-		virtual ~Shape();
-
-
-	};
-	std::istream& operator>>(std::istream& istr, Shape& shape);
-	std::ostream& operator<<(std::ostream& istr, const Shape& shape);
-
+	Shape::~Shape() {}
+	std::istream& operator>>(std::istream& istr, Shape& shape) {
+		shape.getSpecs(istr);
+		return istr;
+	}
+	std::ostream& operator<<(std::ostream& ostr, const Shape& shape) {
+		shape.draw(ostr);
+		return ostr;
+	}
 }
-#endif

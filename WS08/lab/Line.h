@@ -12,20 +12,18 @@ Date       03/24/2022
 -----------------------------------------------------------*/
 #ifndef LINE_H
 #define LINE_H
-#include <iostream>
 #include "LblShape.h"
-using namespace sdds;
+using namespace std;
 namespace sdds {
 	class Line : public LblShape {
 		int m_length;
 	public:
 
 		void draw(std::ostream& os) const;
-		void getSpecs(std::istream& is) const;
+		void getSpecs(std::istream& is) ;
 
 		Line();
 		Line(const char* label,int length);
-		~Line();
 
 
 	};

@@ -12,15 +12,17 @@ Date       03/24/2022
 -----------------------------------------------------------*/
 #ifndef LBLSHAPE_H
 #define LBLSHAPE_H
-#include <iostream>
 #include "Shape.h"
-using namespace sdds;
+#include <string>
+#include <cstring>
+
+using namespace std;
 namespace sdds {
 	class LblShape : public Shape {
 		char* m_label ;
 	public:
 		~LblShape();
-		void getSpecs(std::istream& is) const;
+		void getSpecs(std::istream& is) ;
 
 		LblShape();
 		LblShape(const char* label);
