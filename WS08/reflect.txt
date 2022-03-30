@@ -1,0 +1,21 @@
+/* ------------------------------------------------------
+Workshop 8 part 2
+Module: N/A
+Filename: reflect.txt
+Version 1
+Author	Sepehr Alipour
+Email   salipour2@myseneca.ca
+StudentID 107296212
+Revision History
+-----------------------------------------------------------
+Date       03/26/2022
+-----------------------------------------------------------*/
+
+
+In this workshop, I use the polymorphism concept of Object-Oriented programming in C++ language by learning how to create virtual and pure virtual functions in inheritance.
+Also, I learned about abstract base classes. 
+So the first definition that I figured out in this workshop was about the difference between virtual and pure virtual functions. Both of them do not have implementation and the keyword is "virtual" and they will equal 0.
+The second one is about the Abstract base class which is the c++ interface and does not have any data members. In this case, we are not able to directly initialize an abstract class using the "new" keyword.
+There is another concept about Concrete class that is an ordinary class that does not have virtual functions and can be instantiated.
+Overall, we use an abstract base class where we need to implement them in derived classes. For example, in this workshop, the Shape class is an abstract base class
+and it has two pure virtual functions (draw and getSpecs) and the Line and Rectangle classes are the concrete class which they implement (override) two virtual functions
