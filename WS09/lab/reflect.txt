@@ -1,0 +1,22 @@
+/* ------------------------------------------------------
+Workshop 9 part 2
+Module: N/A
+Filename: reflect.txt
+Version 1
+Author	Sepehr Alipour
+Email   salipour2@myseneca.ca
+StudentID 107296212
+Revision History
+-----------------------------------------------------------
+Date       04/03/2022
+-----------------------------------------------------------*/
+
+In this workshop, I learned how I can read files and put them into dynamically allocated memory and then manipulate the content
+and write it to another file. By implementing the "read" function I got the content of a file from the inputstream and allocated it to the
+m_content variable dynamically. Otherwise, we write manipulated content to the file by using the virtual function that is implemented in the
+HtmlText class. 
+Also, I figured out how we are able to overload the "[]" operator to access the index of array of content to get the content 
+character by character. So we can call it by using "this->operator[](i)" or another way by "(*this)[i]".
+Moreover, the rule of three is provided in this workshop that helps me to fully understand how we should implement the copy constructor
+and copy assignment operator and the destructor function.
+And finally, I had some exercise in inheritance and shadowing the concept of object-oriented programming.
